@@ -1,0 +1,258 @@
+* {
+    box-sizing: border-box;
+}
+
+:root{
+    --primario: #faf3e3;
+    --secundario: #ff9f29;
+    --terciario: #1a4d2e;
+    --negro: black;
+    --blanco: white;
+}
+
+body{
+font-family: 'Roboto Slab', serif;
+background-color: var(--negro);
+}
+
+/********************header******************/
+header { 
+    background-color: black;
+    border-bottom: solid 3px #ff9f29;
+}
+.top-bar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.top-bar img {
+    width: 25%;
+    max-height: 90px;
+}
+.search-bar-container {
+    position: relative;
+    width: 50%;
+}
+.search-bar-container input {
+    border-radius: 20px;
+    width: 100%;
+    height: 25px;
+}
+.search-bar-container i {
+    color: #ff9f29;
+    position: absolute;
+    top: 15%;
+    right: 4%;
+}
+.fa-cart-shopping {
+    color: #ff9f29;    
+}
+.burger-menu {
+    border-radius: 5px;
+    background-color: #ff9f29;
+    color: #faf3e3;
+    border: none;    
+}
+header nav {
+    display: none;
+}
+
+h3 {
+    text-align: center;
+    border-bottom: solid 2px #ff9f29;
+    color: #faf3e3;
+    margin: 0px;
+    padding: 4px 0px;
+}
+.productos .item {
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border-bottom: solid 2px #ff9f29;
+    padding: 4px 0px;
+}
+.item p, .item i {
+    color: #faf3e3;
+}
+
+.item .cantidad-precio {
+    text-align: center;
+    margin-right: 4px;
+    color: #faf3e3;
+}
+.cantidad-precio select {
+    width: 40px;
+}
+.item img {
+    width: 70px;
+    border-radius: 50%;
+    margin-left: 4px;
+}
+.totales {
+    background-color: #1a4d2e;
+    margin-top: 10px;
+    width: 80%;
+    border-radius: 8px;
+    padding: 5px 15%;
+    margin: 10px auto;
+    border: solid 2px #ff9f29;
+}
+.totales p {
+    margin: 0px;
+}
+.envio, .subtotal, .descuento, .total {
+    display: flex;
+    justify-content: space-between;
+    color: #faf3e3;
+    margin: 2px 0px;
+}
+.botones {
+    display: flex;
+    justify-content:center;
+    gap: 20px;
+    margin: 10px 0px;
+}
+.botones button:hover {
+    border: solid 2px #ff9f29;
+}
+.botones button {
+    background-color: #1a4d2e;
+    color: #faf3e3;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 96px;
+}
+main a {
+    color: #faf3e3;
+    display: block;
+    text-align: center;
+    margin-bottom: 5px;   
+}
+
+
+footer{
+    background-color: #1a4d2e;
+    color: white;
+    font-size: 12px;
+}
+footer p {
+    margin: 0px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.contacto-redes {
+   display: flex;
+}
+.contacto {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px 0px;
+    width: 50%;
+}
+.contacto a{
+    text-decoration: none;
+    color: white;
+
+}
+.redes {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.redes i {
+    font-size: 20px;
+    color: white;
+    
+}
+
+
+@media (min-width: 426px) {
+    form {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    .productos {
+        width: 70%;
+    }
+    .totales-botones {
+        margin-right: 5px;
+        padding: 30px 0px;
+        width: 25%;
+    }
+    .totales {
+        width: 100%;
+    }
+    .botones {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+@media (min-width: 769px) {
+    header {
+    position:fixed;
+    z-index: 100;
+    width: 100%;
+    top: 0px;
+    }
+    .top-bar {
+        padding: 0px 15px;
+        justify-content: space-between;
+    }
+    .top-bar img {
+        width: 20%;
+    }
+    .burger-menu {
+        display: none;
+    }
+    .fa-cart-shopping {
+        font-size: 24px;
+        margin-right: 30px;    
+    }
+    header nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 20px;
+    }
+    header nav ul{
+        display: flex;
+        padding: 10px 0px;
+        margin: 0px;
+        font-size: 20px;
+        gap: 15px;
+        list-style-type: none;
+    }
+    header nav ul a {
+        text-decoration: none;
+        color: #ff9f29;
+    }
+    main {
+        margin-top: 136px;
+    }
+    .productos .item {
+        justify-content: space-around;
+    }
+    .cantidad-precio {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    footer {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+    }
+    .contacto {
+        gap: 15px;
+    }
+}    

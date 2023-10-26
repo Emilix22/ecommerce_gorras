@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head', {title: 'Editar Producto', style: '/css/styleForms.css'}) %>
+
+<body>
+    <%- include ("../partials/header") %> 
+    
+    <h2>Editar Producto</h2>
+    <form id="formulario" action="/products/edit/<%=product.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+
+        <div class="form-control" id="camp-name">
+            <label for="name">Nombre del Producto:</label>
+            <input type="text" name="name" value="<%= product.name %> " class="txt-control">
+            <p class="input-error">El campo Nombre del Producto es obligatorio y debe tener al menos 5 caracteres</p>
+        </div>
+
+        <div class="form-control" id="camp-description">
+            <label for="description">Descripción:</label>
+            <textarea name="description" class="txt-control"><%= product.description %></textarea>
+            <p class="input-error">El campo Descripción debe tener al menos 20 caracteres</p>
+        </div>
+
+        <div class="form-control" id="camp-image">
+            <label for="image">Fotos del producto:</label>
+            <input type="file" name="image" accept="image/*">
+            <p class="input-error">la Foto del producto debe ser de alguno de los siguientes formatos: .jpg, .gif, .png, .jpeg o .webp</p>
+        </div>
+
+        <div class="form-control">
+            <label for="price">Precio:</label>
+            <input type="number" name="price" value="<%=product.price%>" class="txt-control" step="0.1">
+        </div>
+
+        <div class="form-control">
+            <label for="category">Categoría:</label>
+            <select name="category" >
+                <% if (product.category.category_name == "Música") { %>
+                    <option value="1" selected>Música</option>
+                    <option value="2">Deportiva</option>
+                    <option value="3">Colección</option>
+                <% } else if (product.category.category_name == "Deportiva"){ %>
+                    <option value="1">Música</option>
+                    <option value="2" selected>Deportiva</option>
+                    <option value="3">Colección</option>
+                <% } else if (product.category.category_name == "Colección"){ %>
+                    <option value="1">Música</option>
+                    <option value="2">Deportiva</option>
+                    <option value="3" selected>Colección</option>
+                <% } %>
+            </select>
+        </div>
+
+        <div class="form-control">
+            <label for="size">Talle:</label>
+            <select name="size" >
+                <% if (product.size.size_name == "XS") { %>
+                    <option value="1" selected>XS</option>
+                    <option value="2">S</option>
+                    <option value="3">M</option>
+                    <option value="4">L</option>
+                    <option value="5">XL</option>
+                <% } else if (product.size.size_name == "S"){ %>
+                    <option value="1">XS</option>
+                    <option value="2" selected>S</option>
+                    <option value="3">M</option>
+                    <option value="4">L</option>
+                    <option value="5">XL</option>
+                <% } else if (product.size.size_name == "M"){ %>
+                    <option value="1">XS</option>
+                    <option value="2">S</option>
+                    <option value="3" selected>M</option>
+                    <option value="4">L</option>
+                    <option value="5">XL</option>
+                <% } else if (product.size.size_name == "L"){ %>
+                    <option value="1">XS</option>
+                    <option value="2">S</option>
+                    <option value="3">M</option>
+                    <option value="4" selected>L</option>
+                    <option value="5">XL</option>    
+                <% } else { %>
+                    <option value="1">XS</option>
+                    <option value="2">S</option>
+                    <option value="3">M</option>
+                    <option value="4">L</option>
+                    <option value="5" selected>XL</option>
+                <% } %>
+            </select>
+        </div>
+
+        <div class="botones">
+            <button type="submit">Guardar</button>
+            <button type="reset">Borrar</button>
+        </div>
+    </form>
+
+    <!-- Script de los iconos -->
+    <script src="https://kit.fontawesome.com/6cd48854d2.js" crossorigin="anonymous"></script>
+    <script src="/js/validationsFrontProduct.js"></script>
+</body>
+</html>

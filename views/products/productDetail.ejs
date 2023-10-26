@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head', {title: 'Detalle de Producto', style: '/css/styleProductDetail.css'}) %> 
+
+<body>
+
+    <%- include ("../partials/header") %> 
+
+    <main class="main-style">
+        <h3 class="nombre-producto"><%= product.name %> </h3>
+        <p class="info-producto"><%= product.description %> </p>
+        <div class="imagen-principal">
+            <img class="imagen001" src="/images/<%= product.image %> " alt="imagen grande de detalle de producto">
+        </div>
+        <div class="imagenes-secundarias">
+            <img class="imagen002" src="/images/<%= product.image %> " alt="imagen miniatura de detalle de producto">
+            <img class="imagen003" src="/images/<%= product.image %>" alt="imagen miniatura de detalle de producto">
+            <img class="imagen004" src="/images/<%= product.image %>" alt="imagen miniatura de detalle de producto">
+        </div>
+        <div class="boxes">
+        <p class="info-producto"><%= product.description %> </p>
+        <h2 class="precio"><%= product.price %> </h2>
+        <h3 class="cuotas">cuotas</h3>
+        <p class="metodos-de-pago">Metodos de Pago</p>
+        <div class="tarjetas">
+            <i class="fa-brands fa-cc-visa"></i>  <i class="fa-brands fa-cc-mastercard">  </i>  <i class="fa-brands fa-cc-amex"></i>
+        </div>
+
+        <div class="caja-de-comentarios">
+            
+        </div>
+        </div>
+        
+        <div class="botones">
+            <a class="button" href="Comprar">Comprar</a>
+            <button class="button" onclick="agregarAlCarrito()">Agregar al Carrito</button>
+            
+            <% if (locals.isLogged && locals.isLogged.level.level == 'Admin') { %>
+                <form action="/products/delete/<%=product.id%>" method="GET">
+                    <button class="button">Eliminar Producto</button>
+                    </form>
+                    <a class="button" href="/products/edit/<%=product.id%>">Editar Producto</a>               
+            <% } %>
+            
+        </div>
+    </main>
+
+    <%- include ("../partials/footer") %> 
+    
+    <script src="../../public/js/carrito.js"></script>
+    <!-- Script de los iconos -->
+    <script src="https://kit.fontawesome.com/6cd48854d2.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head', {title: 'Carrito de Compras', style: '/css/styleProductCart.css'}) %>
+    
+<body>
+    
+    <%- include ("../partials/header") %> 
+
+    <main>
+        <h3>Carrito de Compras</h3>
+        <form action="" method="post">
+            <section class="productos">
+
+
+
+
+                <article class="item">
+                    <img src="/images/DUF-1.jpg" alt="foto">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                    <div class="cantidad-precio">
+                        <label for="cantidad">Cantidad</label>
+
+                        <p>
+                            $4300
+                        </p>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </article>
+
+
+
+
+
+
+
+            <section class="totales-botones">
+                <article class="totales">
+                    <div class="envio">
+                        <p>Envio</p>
+                        <p>$1000</p>
+                    </div>
+                    <div class="subtotal">
+                        <p>Subtotal</p>
+                        <p>$5300</p>
+                    </div>
+                    <div class="descuento">
+                        <p>Descuento</p>
+                        <p>$0</p>
+                    </div>
+                    <div class="total">
+                        <p>Total</p>
+                        <p>$5300</p>
+                    </div>
+                </article>            
+                
+                <div class="botones">
+                    <button>Pagar</button>
+                    <button>Seguir Comprando</button>
+                </div>   
+            </section>
+        </form>
+
+        <a href="#">Preguntas Frecuentes</a>
+    </main>
+    
+    <%- include ("../partials/footer") %>
+  
+    <!-- Script de los iconos -->
+    <script src="https://kit.fontawesome.com/6cd48854d2.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head',{title: 'Login', style: '/css/styleForms.css'}) %> 
+
+<body>
+    <%- include ("../partials/header") %> 
+
+        <!-- ARTICULOS DE MUESTRAS -->
+        <!-- <section class="muestra">
+            <a href="/productDetail"> <img class="imagen1" src="/images/DUF-1.jpg" alt="Imagen"> </a> 
+            <a href="/productDetail"> <img class="imagen1" src="/images/FER-1.jpg" alt="Imagen"> </a> 
+            <a href="/productDetail"> <img class="imagen1" src="/images/HON-1.jpg" alt="Imagen"> </a> 
+            <a href="/productDetail"> <img id= "cuartaImagen" class="imagen1" src="/images/KTM-1.jpg" alt="Imagen"> </a> 
+            
+        </section>    -->
+    <h2> INICIO DE SESION </h2>
+    
+    <p> Bienvenido de vuelta! Ingresa tus datos para iniciar sesion.</p>
+
+        <form id="formulario" action="/users/login" method="POST">
+            
+            <div class="form-camp" id="camp-email">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" id="email" class="form-input" value="<%= locals.oldData ? oldData.email : null %>">
+                <span class="input-error">El campo email es obligatorio y debe ser un formato de email válido</span>
+            </div>
+            <% if (locals.errors && errors.email) { %>
+                <div class="text-danger">
+                    <%= errors.email.msg %> 
+                </div>
+            <% } %>
+            <div class="form-camp" id="camp-password">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-input">
+                <span class="input-error">El campo password es obligatorio y debe tener un mínimo de 8 caracteres</span>
+            </div>
+            <% if (locals.errors && errors.password) { %>
+                <div class="text-danger">
+                    <%= errors.password.msg %> 
+                </div>
+            <% } %>
+            <div class="form-camp">
+                <label for="rememberUser" class="form-label">Recordarme</label>
+                <input type="checkbox" name="rememberUser" class="form-input-remember">
+            </div>
+            <div class="botones">
+            <button type="submit" class="button">Login</button>
+            <a href="/users/register" class="registrarse">Registrarse</a>
+            <a href="#" class="pass">Olvidó su contraseña?</a>
+            </div>
+        </form> 
+    
+    <!-- Script de los iconos -->
+
+<script src="https://kit.fontawesome.com/6cd48854d2.js" crossorigin="anonymous"></script>
+<script src="/js/validationsFrontLogin.js"></script>
+
+</body>
+
+</html>
